@@ -1,0 +1,134 @@
+<header id="headerScroll" class="header-index">
+    <div class="logo-index">
+        <h1><a href="/"><img src="/img/logotipo.png" alt="Antiria" id="logoAntiria"></a></h1>
+    </div>
+    <input type="checkbox" id="nav-check-index" hidden>
+    <nav class="nav-index">
+        <ul class="lista-nav-index">
+            <li>
+                <form class="div-buscador" action="/search" method="GET">
+                    <input type="text" id="search" name="search" placeholder="Buscar productos" class="input-buscador">
+                    <label for="search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></label>
+                </form>
+            </li>
+            <li class="categorias-nav">
+                <label class="link-nav-index" for="categorias">Categorías</label>
+                <input type="checkbox" name="categorias" id="categorias">
+                <ul class="categorias">
+                    <li><a href="/search?search=joyeria">Joyería</a></li>
+                    <li><a href="/search?search=Reliquia">Reliquias</a></li>
+                    <li><a href="/search?search=Mueble">Muebles</a></li>
+                    <li><a href="/search?search=Arte">Arte</a></li>
+                    <li><a href="/search?search=Musica">Musica</a></li>
+                </ul>
+            </li>
+            <% if (locals.isLogged) { %>
+                <% if (locals.userLogged.admin) { %>
+                    <li class="categorias-nav3">
+                        <label for="vender" class="link-nav-index">Opciones</label>
+                        <input type="checkbox" name="vender" id="vender">
+                        <ul class="categorias3">
+                            <li><a href="/listadoUser">Usuarios</a></li>
+                            <li><a href="/listadoProducto/<%= locals.userLogged.id %>">Publicaciones</a></li>
+                            <li><a href="/listadoProducto/<%= locals.userLogged.id %>/vender">Vender</a></li>
+                        </ul>
+                    </li>
+                <% } %>
+                <li>
+                    <a href="/help" class="link-nav-index">Ayuda</a>
+                </li>
+                <li class="profile-img">
+                    <a href="/profile">
+                        <div class="contImgProfile">
+                            <img src="/img/user/<%= locals.userLogged.avatar %>" alt="<%= locals.userLogged.nombre %>">
+                        </div>
+                        <p>Hola, <%= locals.userLogged.nombre %></p>
+                    </a>
+                </li>
+                <li class="carrito-contenedor">
+                    <a href="/carrito/<%= locals.userLogged.id %>" class="carrito-ident"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <div class="contador-carrito">
+                    </div>
+                </li>
+            <% } else { %>
+                <li>
+                    <a href="/login" class="link-nav-index">Ingresar</a>
+                </li>
+                <li>
+                    <a href="/registro" class="link-nav-index">Registrarse</a>
+                </li>
+                <li>
+                    <a href="/help" class="link-nav-index">Ayuda</a>
+                </li>
+            <% } %>
+            <li class="darkMode">
+                <input type="checkbox" class="toggle-btn" id="toggleBtn1">
+            </li>
+        </ul>
+    </nav>
+    <div class="contenedor-icon-mobile">
+        <% if (locals.isLogged) { %>
+            <label for="nav-check-index" class="menu-burger carrito-contenedor">
+                <a href="/carrito/<%= locals.userLogged.id %>"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="contador-carrito">
+                    <p class="contador-carrito-p">0</p>
+                </div>
+            </label>
+        <% } %>
+        <div class="menu-mobile">
+            <input type="checkbox" name="burger" id="burger">
+            <label for="burger" class="burger"><i class="fa-solid fa-bars"></i></label>
+            <label for="burger" class="cross"><i class="fa-solid fa-xmark"></i></label>
+            <ul>
+                <li>
+                    <form class="lupa-mobile" action="/search" method="GET">
+                        <input type="text" id="search-mobile" name="search" placeholder="Buscar productos"/>
+                    </form>
+                </li>
+                <li>
+                    <label class="desplegar" for="cate"><i class="fa-solid fa-caret-down"></i>Categorías</label>
+                    <input type="checkbox" name="cate" id="cate">
+                    <ol id="opciones">
+                        <li><a href="/search?search=joyeria">Joyería</a></li>
+                        <li><a href="/search?search=Reliquia">Reliquias</a></li>
+                        <li><a href="/search?search=Mueble">Muebles</a></li>
+                        <li><a href="/search?search=Arte">Arte</a></li>
+                        <li><a href="/search?search=Musica">Música</a></li>
+                    </ol>
+                </li>
+                <% if (locals.isLogged) { %>
+                    <% if (locals.userLogged.admin) { %>
+                        <li>
+                            <label class="desplegar" for="opcion"><i class="fa-solid fa-caret-down"></i>Opciones</label>
+                            <input type="checkbox" name="opcion" id="opcion">
+                            <ol id="opciones">
+                                <li><a href="/listadoUser">Usuarios</a></li>
+                                <li><a href="/listadoProducto/<%= locals.userLogged.id %>">Publicaciones</a></li>
+                                <li><a href="/listadoProducto/<%= locals.userLogged.id %>/vender">Vender</a></li>
+                            </ol>
+                        </li>
+                    <% } %>
+                    <li>
+                        <a href="/profile">Perfil</a>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <a href="/login">Ingresar</a>
+                    </li>
+                    <li>
+                        <a href="/registro">Registrarse</a>
+                    </li>
+                <% } %>
+                <li>
+                    <a href="/help">Ayuda</a>
+                </li>
+            </ul>
+            <li class="darkMode">
+                <input type="checkbox" class="toggle-btn" id="toggleBtn2">
+            </li>
+        </div>
+    </div>
+</header>
+<script src="/js/darkMode.js"></script>
+<script src="/js/contadorCarrito.js"></script>
+<script src="/js/scrollrevealindex.js"></script>

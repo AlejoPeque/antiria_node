@@ -1,0 +1,130 @@
+<%- include('../partials/head', {tituloWeb: 'Antiria - Registro'}) %>
+
+<body class="login_maestro_box">
+    <header id="logoLogin" class="login_header">
+        <a href="/">
+            <img src="img/isotipo.png" alt="Antiria">
+        </a>
+    </header>
+    <section id="loginBox" class="registro-box">
+
+        <form method="post" id="validForm" action="/registro" enctype="multipart/form-data">
+            <h2>Registrate</h2>
+            <% if (locals.errors && errors.name) { %>
+                <div class="input-box2">
+                        <span class="iconored">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                    <input name="name" id="nombre" type="text">
+                    <label>Nombre</label>
+                </div>
+            <% } else { %>
+                <div class="input-box">
+                        <span class="icono">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                    <input name="name" id="nombre" type="text">
+                    <label>Nombre</label>
+                </div>
+            <% } %>
+
+            <% if (locals.errors && errors.lastname) { %>
+                <div class="input-box2">
+                        <span class="iconored">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                    <input name="lastname" id="apellido" type="text">
+                    <label>Apellido</label>
+                </div>
+            <% } else { %>
+                <div class="input-box">
+                        <span class="icono">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                    <input name="lastname" id="apellido" type="text">
+                    <label>Apellido</label>
+                </div>
+            <% } %>
+
+            <% if (locals.errors && errors.mail) { %>
+                <div class="input-box2">
+                        <span class="iconored">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                    <input name="mail" id="email" type="text">
+                    <label>Correo electrónico</label>
+                </div>
+                <p class="errors"><%= errors.mail.msg %></p>
+            <% } else { %>
+                <div class="input-box">
+                        <span class="icono">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                    <input name="mail" id="email" type="text">
+                    <label>Correo electrónico</label>
+                </div>
+            <% } %>
+
+            <div>
+                <input name="avatar" type="file">
+            </div>
+
+            <% if (locals.errors && errors.password) { %>
+                <div class="input-box2">
+                        <span class="iconored">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                    <input name="password" id="password" type="password">
+                    <label>Contraseña</label>
+                </div>
+            <% } else { %>
+                <div class="input-box">
+                        <span class="icono">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                    <input name="password" id="password" type="password">
+                    <label>Contraseña</label>
+                </div>
+            <% } %>
+
+            <% if (locals.errors && errors.passwordConfirm) { %>
+                <div class="input-box2">
+                        <span class="iconored">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                    <input name="passwordConfirm"  id="repcontra" type="password">
+                    <label>Confirmar contraseña</label>
+                </div>
+            <% } else { %>
+                <div class="input-box">
+                        <span class="icono">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                    <input name="passwordConfirm" id="repcontra" type="password">
+                    <label>Confirmar contraseña</label>
+                </div>
+            <% } %>
+
+            <div  id="recordar">
+                <label><input name="terminos" type="checkbox">Términos y condiciones</label>
+            </div>
+            <% if (locals.errors && errors.terminos) { %>
+                <p class="errors"><%= errors.terminos.msg %></p>
+            <% } %>
+            <ul id="listaErrores">
+            </ul>
+
+            <button type="submit">Registrate</button>
+            <div class="registrar_link">
+                <p>¿Ya sos miembro? <a href="/login">Inicia tu sesión</a></p>
+            </div>
+        </form>
+    </section>
+    <footer class="footer_login">
+        <p>Antiria - 2023 &copy</p>
+        <script src="../../public/js/validRegister.js" ></script>
+    </footer>
+    <script src="/js/scrollrevealindex.js"></script>
+</body>
+
+</html>

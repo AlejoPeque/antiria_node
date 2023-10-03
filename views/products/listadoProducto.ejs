@@ -1,0 +1,55 @@
+<%- include('../partials/head', {tituloWeb: 'Antiria - Listado' }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include("../partials/header.ejs")%>
+            <!-- FIN HEADER -->
+            <main class="carrito-main">
+                </div>
+                <ul class="carrito-seguimiento">
+                    <li>
+                        <div class="carrito">
+                            <a>Tus publicaciones</a>
+                        </div>
+                    </li>
+
+                </ul>
+                <section class="main-search2">
+                    <% if (productsUser.length===0) { %>
+                        <h4 class="notfound-search">No tiene publicaciones hechas 😔</h4>
+                    <% } else { %>
+                        <% productsUser.forEach ((row)=> { %>
+                            <article>
+                                <div class="imagen-detalle-prod">
+                                    <img src="/img/products/<%= row.ImagenesProd[0].imagen_prod %>" alt="">
+                                </div>
+                                <div class="descripcion_search_prod2">
+                                    <h3><%= row.nombre %></h3>
+                                    <h4 class="green">$ <%= row.precio.toLocaleString('es-ES'); %></h4>
+                                    <div class="eliminar-edit2">
+                                        <form method="POST" action="/listadoProducto/<%= locals.userLogged.id %>/delete/<%= row.id %>?_method=DELETE" onsubmit="return confirm('¿Realmente desea eliminar este producto?')">
+                                            <button type="submit" class="eliminar" id="user-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        <a id="product-edit" href="/listadoProducto/<%= locals.userLogged.id %>/edicionProducto/<%= row.id %>"> <i class="fa-solid fa-pen-to-square "></i></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr>
+                        <% }) %>
+                    <% } %>
+                    <div class="realizar-compra3">
+                        <a href="/listadoProducto/<%= locals.userLogged.id %>/vender" class="realizar-compra2 ">Vender tu producto</a>
+                    </div>
+
+                </section>
+            </main>
+
+
+            <!-- FOOTER -->
+            <%- include("../partials/footer.ejs")%>
+                <!-- FIN FOOTER -->
+    </body>
+
+    </html>

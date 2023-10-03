@@ -1,0 +1,57 @@
+<%- include('../partials/head', {tituloWeb: 'Antiria - Listado' }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include("../partials/header.ejs")%>
+            <!-- FIN HEADER -->
+            <main class="carrito-main">
+                </div>
+                <ul class="carrito-seguimiento">
+                    <li>
+                        <div class="carrito">
+                            <a>Usuarios</a>
+                        </div>
+                    </li>
+
+                </ul>
+                <section class="main-search2">
+                    <% if (data.length===0) { %>
+                        <h4 class="notfound-search">No hay usuarios creados 😔</h4>
+                    <% } else { %>
+                        <h4 class="notfound-search">Hay un total de <span class="green"><%= total %></span> usuarios creados</h4>
+                        <% data.forEach ((row)=> { %>
+                            <article>
+                                <div class="imagen-detalle-prod">
+                                    <img src="/img/user/<%= row.avatar %>" alt="">
+                                </div>
+                                <div class="descripcion_search_prod2">
+                                    <h3><%= row.nombre + ' ' + row.apellido %></h3>
+                                    <h4 class="dorado"><%= row.email %></h4>
+                                    <% if (row.id == 1) { %>
+                                        <h5 class="green">Admin</h5>
+                                    <% } else { %>
+                                        <h5 class="azul">Usuario</h5>
+                                    <% } %>
+                                    <div class="eliminar-edit">
+                                        <form method="POST" action="/listadoUser/delete/<%= row.id %>?_method=DELETE" onsubmit="return confirm('¿Realmente desea eliminar este usuario?')">
+                                            <button type="submit" class="eliminar" id="user-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </article>
+                            <hr>
+                        <% }) %>
+                    <% } %>
+
+                </section>
+            </main>
+
+
+            <!-- FOOTER -->
+            <%- include("../partials/footer.ejs")%>
+                <!-- FIN FOOTER -->
+    </body>
+
+    </html>

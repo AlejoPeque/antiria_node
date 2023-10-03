@@ -1,0 +1,90 @@
+[
+ {
+  "id": 1,
+  "name": "Shrek",
+  "lastname": "El Ogro",
+  "mail": "shrek@gmail.com",
+  "password": "$2a$10$TJxLsHwoFnakhFCE55ukXu7WU8AWg2NaCpvrGKf40fxjAB4UVJDpC",
+  "terminos": "on",
+  "avatar": "user-1690156726211.jpg",
+  "product": [
+   1,
+   2,
+   3,
+   15
+  ],
+  "cart": []
+ },
+ {
+  "id": 2,
+  "name": "Jorge",
+  "lastname": "Curioso",
+  "mail": "jorgecurioso@yahoo.com",
+  "password": "$2a$10$RjO41tcLrMuKH57OJ56AtOsHmdyyWbxItqtIxnlt9OBq7Ho/kaRU.",
+  "terminos": "on",
+  "avatar": "user-1690157620808.jpg",
+  "product": [
+   4,
+   5,
+   6,
+   7,
+   11,
+   12
+  ],
+  "cart": []
+ },
+ {
+  "id": 3,
+  "name": "Yimmi",
+  "lastname": "Neutron",
+  "mail": "yimmineutron@gmail.com",
+  "password": "$2a$10$kYQI4zNWirfuQveS7Xy5wOu7rmDXtgz1YmWCNnyqfyOwxKwgHVWDC",
+  "terminos": "on",
+  "avatar": "user-1690159262325.jpeg",
+  "product": [
+   8,
+   9,
+   10,
+   13,
+   14
+  ],
+  "cart": [
+   "5"
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Ken",
+  "lastname": "El de barbie",
+  "mail": "ken@gmail.com",
+  "password": "$2a$10$MMwrvEpM5nPu0VvYrBk0MO6LHVvBBkTWFybKuu1klv6VSKTiRFRI6",
+  "terminos": "on",
+  "avatar": "user-1690249906045.jpg",
+  "product": [],
+  "cart": [
+   "15"
+  ]
+ },
+ {
+  "id": 5,
+  "name": "santiago",
+  "lastname": "sanchez",
+  "mail": "s.sanchez2002@hotmail.com",
+  "password": "$2a$10$pttXrGt20ZM.UjUWH8Dx..e6.WaVF.dJVWm04V35UTRE1go5Ca4mW",
+  "terminos": "on",
+  "avatar": "user_undefined.png",
+  "product": [],
+  "cart": []
+ },
+ {
+  "id": 6,
+  "name": "lucas",
+  "lastname": "lucas",
+  "mail": "luquitas@hotmail.com",
+  "password": "$2a$10$OjWKXIrs3YA/DoXv96Rdl.xABPGAjVZhxwZMOozJjuysY/oQS1XYO",
+  "terminos": "on",
+  "avatar": "user-1690855142579.png",
+  "product": [],
+  "cart": []
+ }
+]

@@ -1,0 +1,32 @@
+<%- include('../partials/head', {tituloWeb: 'Antiria - Carrito' }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include("../partials/header.ejs")%>
+            <!-- FIN HEADER -->
+            <main class="carrito-main">
+                </div>
+                <ul class="carrito-seguimiento">
+                    <li>
+                        <div class="carrito">
+                            <i><a href="/carrito">Carrito</a></i>
+                        </div>
+                    </li>
+                </ul>
+                <section class="main-cart">
+                    <div class="carrito-prod">
+                    </div>
+                    <hr>
+                    <div class="totalCart">
+                    </div>
+                </section>
+            </main>
+
+
+            <!-- FOOTER -->
+            <%- include("../partials/footer.ejs")%>
+            <!-- FIN FOOTER -->
+            <script src="/js/carrito.js"></script>
+    </body>
+
+    </html>

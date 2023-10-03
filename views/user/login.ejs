@@ -1,0 +1,53 @@
+<%- include('../partials/head', {tituloWeb: 'Antiria - Login'}) %>
+
+<body class="login_maestro_box">
+    <header id="logoLogin" class="login_header">
+        <a href="/">
+            <img src="img/isotipo.png" alt="Antiria">
+        </a>
+    </header>
+    <section id="loginBox" class="login-box">
+        <form class="validForm" action="/login" method="POST">
+            <h2>Iniciar Sesión</h2>
+            <div class="input-box">
+                <span class="icono">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+                <input type="email" id="mail" name="mail" >
+                <label>Correo electrónico</label>
+            </div>
+            <% if (locals.errors && errors.mail) { %>
+                <p class="errors"><%= errors.mail.msg %></p>
+            <% } %>
+            <div class="input-box">
+                <span class="icono">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+                <input type="password" id="contraseña" name="password" >
+                <label>Contraseña</label>
+            </div>
+            <div class="recordar">
+                <label><input type="checkbox" name="remember_user" value="on">Recordar</label>
+            </div>
+
+            <div class="erroresLogin">
+                <ul id="listaErrores">
+                </ul>
+            </div>
+
+            <button type="submit">Ingresar</button>
+            <div class="registrar_link">
+                <p>¿No tenés una cuenta? <a href="/registro">Registrate</a></p>
+            </div>
+        </form>
+    </section>
+    <footer class="footer_login">
+        <p>Antiria - 2023 &copy</p>
+    </footer>
+
+    <script src="../../public/js/validLogin.js" >
+    </script>
+    <script src="/js/scrollrevealindex.js"></script>
+</body>
+
+</html>
