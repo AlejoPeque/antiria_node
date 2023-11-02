@@ -55,7 +55,7 @@ app.use(methodOverride("_method"))
 
 //server
 app.listen(process.env.PORT || port, () => {
-    console.log('Levantando servidor http://localhost:' + port)
+    console.log('Levantando servidor http://localhost:' + process.env.PORT || port)
 })
 
 //routes
